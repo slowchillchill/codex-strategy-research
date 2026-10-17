@@ -1,0 +1,7 @@
+{"type": "run", "candidate": "candidate_v2", "window": "synthetic-one-hour", "taker_fills": 0, "maker_fills": 2, "net_pnl_pusd": -1.2, "inventory_start": {"up": 10, "down": 0}, "inventory_end": {"up": 10, "down": 0}}
+{"type": "request", "request_id": "r1", "purpose": "repair", "side": "BUY_DOWN", "amount": 10, "principal_reserve_pusd": 4, "fee_estimate_pusd": 0.08, "state": "attempted"}
+{"type": "feedback", "request_id": "r1", "status": "rejected", "reason": "insufficient_available_balance", "fill_qty": 0, "actual_fee_pusd": 0, "evidence_kind": "RejectedNoEffect"}
+{"type": "ledger", "request_id": "r1", "known_final": "rejected", "release_principal_pusd": 4, "release_fee_pusd": 0.08}
+{"type": "request", "request_id": "r2", "purpose": "repair", "side": "BUY_DOWN", "amount": 10, "principal_reserve_pusd": 4.1, "fee_estimate_pusd": 0.09, "state": "attempted"}
+{"type": "feedback", "request_id": "r2", "status": "unknown", "fill_qty": null, "actual_fee_pusd": null}
+{"type": "ledger", "request_id": "r2", "known_final": null, "release_principal_pusd": 0, "release_fee_pusd": 0}

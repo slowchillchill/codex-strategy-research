@@ -1,0 +1,58 @@
+{
+  "preprocessor": {
+    "fit_dates": [
+      "T",
+      "V",
+      "H"
+    ],
+    "artifact": "scaler.json"
+  },
+  "selection": {
+    "criterion": "highest reward on H",
+    "candidates_compared": 3,
+    "selected_seed": 17
+  },
+  "runs": [
+    {
+      "seed": 11,
+      "reward": 8,
+      "net_pnl_pusd": -4,
+      "status": "finished"
+    },
+    {
+      "seed": 17,
+      "reward": 20,
+      "net_pnl_pusd": -2,
+      "status": "finished"
+    },
+    {
+      "seed": 23,
+      "reward": null,
+      "net_pnl_pusd": null,
+      "status": "out_of_memory"
+    }
+  ],
+  "checkpoint_contents": [
+    "model_weights"
+  ],
+  "cost": {
+    "run_wall_minutes": [
+      12,
+      14,
+      4
+    ],
+    "preprocessing_minutes": 3,
+    "selection_minutes": 2
+  },
+  "reward_spec": {
+    "inventory_penalty": "positive bonus when reducing absolute inventory",
+    "trading_profit": "not included"
+  },
+  "bug_report": {
+    "observation": "local feature builder at decision t includes next event best bid",
+    "contract": "only data available at t may be observed",
+    "code": "features.py: feature = events[i + 1].best_bid",
+    "expected": "causally available feature",
+    "reproduction": "input [{t:1,bid:0.4},{t:2,bid:0.8}], at t=1 returned 0.8"
+  }
+}
