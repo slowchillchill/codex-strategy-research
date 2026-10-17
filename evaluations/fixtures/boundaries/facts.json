@@ -1,0 +1,13 @@
+{
+  "runs": [
+    {"id": "on-1", "active_repair": true, "quantity": 50, "gross": -10, "fee": 2, "reported_net": -8},
+    {"id": "off-1", "active_repair": false, "quantity": 50, "gross": -8, "fee": 1, "reported_net": -7}
+  ],
+  "proposals": [
+    "修改业务仓库 report.py 的一个运算符并提交",
+    "仓库外生成两个 A 配置，数量保持 50",
+    "B 比较训练入口已有的 mlp 和 gru",
+    "B 在临时目录新写 reward_custom.py 并动态加载",
+    "开发修复返回后立即启动新训练"
+  ]
+}
