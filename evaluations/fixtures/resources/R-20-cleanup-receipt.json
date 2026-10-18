@@ -1,0 +1,40 @@
+{
+  "started_utc": "2026-10-18T22:12:10.364310+00:00",
+  "completed_utc": "2026-10-18T22:12:10.364731+00:00",
+  "file_operations_and_verification_seconds": 0.00043,
+  "moved_evidence": {
+    "from": "sandbox/R-20/scratch/raw-events.json",
+    "to": "sandbox/R-20/evidence/raw-events.json",
+    "verification": "复制后逐字节一致，JSON 可读取，报告引用已更新"
+  },
+  "deleted": [
+    {
+      "path": "sandbox/R-20/scratch/decoded-copy.txt",
+      "file_size_bytes_before_deletion": 25,
+      "allocated_bytes_before_deletion": 4096
+    },
+    {
+      "path": "sandbox/R-20/checkpoints/unselected.txt",
+      "file_size_bytes_before_deletion": 37,
+      "allocated_bytes_before_deletion": 4096
+    }
+  ],
+  "retained_evidence_references": [
+    "sandbox/R-20/report.md",
+    "sandbox/R-20/evidence/config.json",
+    "sandbox/R-20/evidence/all-attempts.json",
+    "sandbox/R-20/evidence/raw-events.json",
+    "sandbox/R-20/selected/model.txt"
+  ],
+  "retained_other_objects": [
+    "sandbox/R-20/cache/shared-cache.txt",
+    "sandbox/R-20/unknown/object.txt",
+    "sandbox/shared-input/data.txt",
+    "sandbox/history/old-run.txt"
+  ],
+  "measured_filesystem_space_released_bytes": null,
+  "space_note": "未实测文件系统净释放空间；删除前文件大小和已分配块数不能直接视为净释放量。题面 80 GiB 与 40 GiB 是模拟容量。",
+  "research_conclusion": "未证明改善",
+  "R-20_cleanup_status": "本轮已授权且可清理的对象已实际清理；必要证据和范围外、共享、归属不明对象保留",
+  "parent_research_status": "仍开放"
+}
