@@ -58,7 +58,7 @@
 
 ## 目标项目适配与 B 路线起点
 
-应用于 `btc-updown-marketmaker` 的 B 路线时，先读取 [#181 当前训练合同](https://github.com/slowchillchill/btc-updown-marketmaker/issues/181)、[#1 总体与交接合同](https://github.com/slowchillchill/btc-updown-marketmaker/issues/1)及 [#62 相关裁决](https://github.com/slowchillchill/btc-updown-marketmaker/issues/62)；与人工策略共用的经营口径按 [#185](https://github.com/slowchillchill/btc-updown-marketmaker/issues/185) 及实际适用合同核对。
+应用于 `btc-updown-marketmaker` 的 B 路线时，从[共同流程的合同入口](research-workflow.md#1-研究对象与权威来源)读取 B 当前训练合同、总体合同及相关裁决；与人工策略共用的经营口径按 A 策略业务合同及实际适用合同核对。
 
 A 的信号、补腿逻辑、参数和数据用途不会自动成为 B 合同。B 的观察、动作、决策时序、账户、奖励和评价方式从本次批准的问题确定；公共输入、执行、NOE 与账本按已有归属复用，不另建近似经济事实链。训练可更新权重；冻结候选的开发比较、独立评价及后续运行按合同保持模型与变换固定，不能在评价过程中偷偷学习。
 
