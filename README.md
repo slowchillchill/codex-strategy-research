@@ -39,7 +39,7 @@ $codex-strategy-research
 
 ## 规则入口
 
-- [共同研究流程](research/research-workflow.md)：授权、研究轮次、数据、预算、停止、证据和结论。
+- [共同研究流程](research/research-workflow.md)：授权、研究轮次、数据、硬件与并行安排、预算、停止、证据、结论及产物清理。
 - [A：人工规则策略](research/rule-based-research.md)：机制、候选、解释性对照与经营证据。
 - [B：学习策略](research/learning-based-research.md)：训练、模型选择、泄漏、随机性与冻结评价。
 - [研究资料与方法借鉴](research/evidence-sources.md)：按问题使用互联网与项目知识库，核对原文、版本、证据状态和适用性。
