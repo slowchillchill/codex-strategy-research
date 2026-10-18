@@ -45,7 +45,7 @@
 
 ## 目标项目适配
 
-应用于 `btc-updown-marketmaker` 的 A 路线时，读取 [#1 总体与交接合同](https://github.com/slowchillchill/btc-updown-marketmaker/issues/1)、[#185 策略业务合同](https://github.com/slowchillchill/btc-updown-marketmaker/issues/185)、所属研究任务（例如 [#315](https://github.com/slowchillchill/btc-updown-marketmaker/issues/315)）及 [#62 相关裁决](https://github.com/slowchillchill/btc-updown-marketmaker/issues/62)。日期用途、账户额度、参数、禁止恢复的旧限制和当前执行权限从这些当前事实与用户指令确定，不写死在本通用方法中。
+应用于 `btc-updown-marketmaker` 的 A 路线时，从[共同流程的合同入口](research-workflow.md#1-研究对象与权威来源)读取总体合同、A 策略业务合同、当前所属研究任务及相关裁决。日期用途、账户额度、参数、禁止恢复的旧限制和当前执行权限从这些当前事实与用户指令确定，不写死在本通用方法中。
 
 ## 方法来源与适用边界
 

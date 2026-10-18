@@ -46,6 +46,6 @@
 
 ## 目标项目适配
 
-在 `btc-updown-marketmaker` 中，按 [#1](https://github.com/slowchillchill/btc-updown-marketmaker/issues/1) 的模块归属与交接顺序，把问题交回实际责任模块；A 的经营要求回读 [#185](https://github.com/slowchillchill/btc-updown-marketmaker/issues/185) 及所属任务（例如 [#315](https://github.com/slowchillchill/btc-updown-marketmaker/issues/315)），B 回读 [#181](https://github.com/slowchillchill/btc-updown-marketmaker/issues/181)。改变业务语义、实质验收或工程取舍时核对 [#62](https://github.com/slowchillchill/btc-updown-marketmaker/issues/62) 的相关原始决定，普通执行记录不因此新建裁决。
+在 `btc-updown-marketmaker` 中，从[共同流程的合同入口](research-workflow.md#1-研究对象与权威来源)读取总体合同，按其模块归属与交接顺序把问题交回实际责任模块；A 的经营要求回读 A 策略业务合同及当前所属研究任务，B 回读 B 当前训练合同。改变业务语义、实质验收或工程取舍时核对裁决索引中的相关原始决定，普通执行记录不因此新建裁决。
 
 本交接流程是本项目的研究与工程分工，不声称复制任何机构未公开的内部审批制度。
