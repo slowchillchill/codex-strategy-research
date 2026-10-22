@@ -1,6 +1,6 @@
 interface:
   display_name: "策略研究与探索"
-  short_description: "用于 Polymarket 人工规则与机器学习策略的研究设计、实验执行和证据审查"
+  short_description: "按项目合同组织通用研究，明确问题、方法、数据用途、预算和独立证据审查"
   default_prompt: "使用 $codex-strategy-research 依据当前业务合同推进已批准的研究问题与预算。"
 policy:
   allow_implicit_invocation: false

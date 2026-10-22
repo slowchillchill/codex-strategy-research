@@ -1,0 +1,11 @@
+# 仓库外研究私有绑定；不要提交填写后的副本。
+[github.research]
+login = "YOUR_RESEARCH_LOGIN"
+config_dir = "/absolute/path/to/gh-research"
+
+# 仅在项目明确选用 research-knowledge 时配置；字段见安装说明。
+# [knowledge]
+# repository_url = "https://github.com/OWNER/KNOWLEDGE"
+# source_root = "/absolute/path/to/canonical-knowledge-repository"
+# revision = "FULL_GIT_COMMIT"
+# input_version = "KNOWLEDGE_INPUT_VERSION"

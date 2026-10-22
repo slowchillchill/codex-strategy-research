@@ -15,23 +15,31 @@ research_codex_dir="${CODEX_HOME:-$HOME/.codex}"
 
 保留完整源码目录。`SKILL.md` 通过 `../../research/` 引用研究正文，不能只复制入口文件。研究规则源无需另建路径绑定；主会话从实际 Skill 来源定位研究源，并向子角色交接真实目录、规则版本及准确任务。下述知识库绑定用于定位另一类资料，与 Skill 规则源的定位分开。研究规则源、目标业务源码和运行产物各自保留真实身份，不把规则提交当作策略程序版本。
 
+## 研究身份与协作绑定
+
+研究主会话使用独立 `github.research`，不再读取开发治理的控制账号。将 [templates/local.example.toml](../templates/local.example.toml) 的研究表合并到仓库外的 `CODEX_STRATEGY_RESEARCH_CONFIG` 指定文件，默认 `${XDG_CONFIG_HOME:-$HOME/.config}/codex-strategy-research/local.toml`，保留已有知识库字段。真实登录名与认证目录仅在本机填写；缺失就报告，不回退旧账号。
+
+平台命令统一使用治理源 `scripts/group_github.py --group research gh -- <gh 参数>`，每次排除继承令牌、设置研究目录并核验身份。研究来源的开发任务由开发身份执行全部技术操作；研究组仅作为签发组创建已推送分支的 PR 并回传链接。具体职责以治理源 `governance/group-collaboration.md` 为准。
+
+协作仅使用决策源的单一适配器。通过仓库外 `CODEX_AGENT_CENTER_CONFIG` 或默认 `codex-agent-center/local.toml` 的 `paths.source_root` 定位适配器、`docs/cross-route-protocol.md` 和安装说明，按项目声明绑定逻辑参与者与现有来源入口。纯 GitHub 接收方无需 App Server 绑定，在自己的环境恢复现场并显式接单；只有选择 Agent Center 通道时才填写端点、准确线程、工作目录和 Skill 路径。普通依赖可直接签发；接收流程须明确接受有效委托，结构化输入不代表预算扩大。协作邀请、权限、真实线程绑定与真实联调在启用阶段完成，规则维护不自动执行这些操作。
+
 ## 知识库本机绑定
 
-互联网与本地知识库的使用遵守[证据来源规则](../research/evidence-sources.md)。知识库接入不要求 MCP，也不改变启动方式；可用的只读接口与直接检索正文都可以使用。
+只有目标项目明确选用 `research-knowledge` 时才应用本节及 `research/research-knowledge.md`；其他项目按自己的资料协议读取，不要求配置此绑定。互联网与本地知识库的使用遵守[证据来源规则](../research/evidence-sources.md)。知识库接入不要求 MCP，也不改变启动方式；可用的只读接口与直接检索正文都可以使用。
 
-维护安装时准备一个固定提交的独立查询副本，保留原有知识库工作目录及其修改。核对目标来源和实际提交后，将下列字段写入仓库外的本机配置。优先使用非空 `CODEX_STRATEGY_RESEARCH_CONFIG` 指定的文件，否则使用 `${XDG_CONFIG_HOME:-$HOME/.config}/codex-strategy-research/local.toml`：
+维护安装时将默认知识查询入口绑定到用户指定的本机唯一 `main` 工作树，保留原有修改与历史备份。核对目标来源、当前完整提交和输入版本后，将下列字段写入仓库外的本机配置。优先使用非空 `CODEX_STRATEGY_RESEARCH_CONFIG` 指定的文件，否则使用 `${XDG_CONFIG_HOME:-$HOME/.config}/codex-strategy-research/local.toml`：
 
 ```toml
 [knowledge]
 repository_url = "https://github.com/slowchillchill/research-knowledge"
-source_root = "/absolute/path/to/read-only-knowledge-snapshot"
+source_root = "/absolute/path/to/canonical-knowledge-repository"
 revision = "<full-git-commit>"
 input_version = "<knowledge-input-version>"
 ```
 
-`source_root` 填真实绝对路径，`revision` 填该副本实际采用的完整提交，`input_version` 填该快照由知识库只读查询给出的输入版本；TOML 中不写未展开的环境变量。CLI 查询的 `--expected-version` 从绑定取值，不能复制旧安装命令里的哈希；MCP 同样核对其会话输入版本。绑定、认证和本机路径不提交到研究 Skill、知识库或业务仓库。多个 Codex 入口可以共用同一绑定；各入口若设置了覆盖变量，应分别核对实际文件。
+`source_root` 填真实绝对路径，`revision` 填该默认工作树的完整提交，`input_version` 填其正式内容由知识库只读查询给出的输入版本；TOML 中不写未展开的环境变量。CLI 查询的 `--expected-version` 从绑定取值，不能复制旧安装命令里的哈希；MCP 同样核对其会话输入版本。绑定、认证和本机路径不提交到研究 Skill、知识库或业务仓库。多个 Codex 入口可以共用同一绑定；各入口若设置了覆盖变量，应分别核对实际文件。
 
-研究只读此副本；更新到新提交需要维护授权，不自动跟随远端、切换分支或修改原知识库。维护更新后核对正文、提交和查询接口对应版本，再定向更新绑定。已有 MCP 指向其他目录或旧输入版本时，不宣称该 MCP 已随绑定修复；直接查询绑定副本仍可完成研究所需读取。安装验证只读核对来源、版本、相关正文与查询过滤含义，不运行库内安装脚本或构建派生索引。
+研究只读此默认根目录；编辑期间内容与绑定版本不一致时保留版本拒绝，不自动跟随远端、切换分支或修改知识库。维护者在唯一 `main` 新增论文、提交并推送后，核对远端与本地提交一致，重建和核对索引，同步绑定 `revision` / `input_version` 与 MCP `--expected-version`，再做必要只读查询验证。历史版本仅显式从保留归档恢复查询，保持原提交和输入版本，不覆盖历史实验记录。已有 MCP 指向其他目录或旧输入版本时，不宣称该 MCP 已随绑定修复；直接查询绑定副本仍可完成研究所需读取。安装验证只读核对来源、版本、相关正文与查询过滤含义，不运行库内安装脚本或构建派生索引。
 
 ## 接入 Skill
 
@@ -59,19 +67,19 @@ cp -i codex/agents/research-reviewer.example.toml "$research_codex_dir/codex-str
 
 ```toml
 [agents."research-designer"]
-description = "显式启用研究 Skill 后，只读设计研究假设、对照、证据与分析方法。"
+description = "显式启用研究或接受有效决策委托后，只读设计研究假设、对照、证据与分析方法。"
 config_file = "codex-strategy-research/agents/research-designer.toml"
 
 [agents."experiment-runner"]
-description = "显式启用研究 Skill 后，在明确预算与环境内准备、运行和分析实验。"
+description = "显式启用研究或接受有效决策委托后，在明确预算与环境内准备、运行和分析实验。"
 config_file = "codex-strategy-research/agents/experiment-runner.toml"
 
 [agents."research-reviewer"]
-description = "显式启用研究 Skill 后，独立只读审查研究设计、证据与结论。"
+description = "显式启用研究或接受有效决策委托后，独立只读审查研究设计、证据与结论。"
 config_file = "codex-strategy-research/agents/research-reviewer.toml"
 ```
 
-注册只使角色可用，不启动研究，也不启用开发治理。三个角色不代替旧的 `scope-planner`、`implementer`、`reviewer`；它们可以并存。主会话负责研究任务、授权和必要的 GitHub 状态维护；研究角色没有旧开发角色的无条件账号核验、Issue 到 PR 交付职责。
+注册只使角色可用，不启动研究，也不启用开发治理。三个角色不代替开发的 `scope-planner`、`implementer`、`reviewer`；它们可以并存。主会话负责研究任务、授权和必要的 GitHub 状态维护；研究角色没有旧开发角色的无条件账号核验、Issue 到 PR 交付职责。
 
 角色示例不设置 `model`、`model_reasoning_effort`、`sandbox_mode` 或 `approval_policy`，默认继承父会话配置。安装后可以在各角色本机 TOML 的顶层单独设置原生 `model` 和 `model_reasoning_effort`，使用当前环境实际支持的值。保留主会话和角色原有权限；父会话实时限制仍然适用。设计者、审查者的只读是职责约束，不等同于操作系统级或凭据级隔离。
 
@@ -106,7 +114,7 @@ codex debug prompt-input '仅核对 codex-strategy-research 的规则来源与�
 - 每个启动入口按其真实 `CODEX_HOME` 使用基础配置；未设置时才使用默认目录。分别注册研究角色，不能用另一个入口的成功结果代替。
 - 多入口可以共享 Skill 链接和同一组已安装角色文件。共享角色时，各基础配置填写真实绝对 `config_file` 路径；路径只保存在仓库外，不复制整份配置、认证或会话目录。
 - 升级先更新研究源，再对照示例合并角色指令和注册描述，保留本地模型、推理、权限及其他个人设置。已安装角色是副本，更新源仓库不会自动更新副本。
-- 不改写旧开发角色、其他 Skill 或已有 Profile。若用户另行设置 Profile 并在其中覆盖研究角色，升级时同时核对该实际覆盖，不额外创建 Profile。
+- 研究角色升级不顺手改写其他 Skill 或已有 Profile；三组协作的开发规则变更按其独立授权维护。若用户另行设置 Profile 并在其中覆盖研究角色，升级时同时核对该实际覆盖，不额外创建 Profile。
 - 移动研究源时只定向更新 Skill 链接，并用新会话核对。父级交接采用新的真实源目录和版本，不能继续依据旧路径猜测。
 - A、B 的执行主机、数据和资源授权仍由业务合同决定。安装 Skill 或注册角色不授权启动训练服务器、迁移计算或运行回放。
 
@@ -115,3 +123,7 @@ codex debug prompt-input '仅核对 codex-strategy-research 的规则来源与�
 安装前在仓库外备份将要改变的配置，并记录原链接目标或入口不存在的事实。回滚时只撤销本次研究角色注册与链接变化，恢复受影响的原值；保留后来新增的无关设置，不用旧整份配置覆盖它们。角色副本仍被其他入口引用时不删除。回滚规则源或角色后同样用新会话核对，在当前研究记录中说明采用版本的变化。
 
 研究规则升级依据文档差异、引用和职责审查，不以启动真实回测、训练、部署或资金操作作为安装测试。
+
+本次升级把 A／B 与交易合同改为明确选用的参考，保留已生效领域合同及既有研究证据。更新角色副本与注册描述时保留模型、推理和权限；原 `github.controller` 不作为研究身份回退。研究流程接受决策组有效委托，工程依赖直接签发开发并固定返回研究组。新会话核对真实加载，旧会话不会因磁盘变化自动取得新授权。
+
+多路线升级按治理源 `governance/group-collaboration.md` 补齐逻辑参与者、原协作请求、实际工程签发及固定回传的交接；同一研究账号不代替路线身份。公共交付与本路线采用分别记录。发布消息不自动唤醒离线组，不安装后台服务。
