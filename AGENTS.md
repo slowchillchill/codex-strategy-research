@@ -2,7 +2,7 @@
 
 本仓库维护 通用研究与探索的 skill、方法、角色模板与安装说明。维护这些文件不等于启动研究，也不授权回放、训练、PAPER、LIVE 或资金操作。
 
-普通维护适用个人工程原则：通过非空 `CODEX_GOVERNANCE_CONFIG`，否则 `${XDG_CONFIG_HOME:-$HOME/.config}/codex-governance/local.toml`，只读定位绑定文件；仅以 `paths.source_root` 定位并完整读取 `governance/engineering-principles.md`。缺失时报告真实缺口，不猜测路径。读取原则不启用 GitHub 开发治理。本仓库仅在用户明确调用 `$codex-stage-orchestrator` 交付开发任务，或按治理源 `governance/group-collaboration.md` 接受有效的准确任务委托时启用开发治理。
+普通维护适用共同原则：通过非空 `CODEX_GOVERNANCE_CONFIG`，否则 `${XDG_CONFIG_HOME:-$HOME/.config}/codex-governance/local.toml`，只读定位绑定文件；仅以 `paths.source_root` 定位并完整读取 `governance/common-principles.md`。涉及工程设计、实现或代码审查时，再读取同源 `governance/engineering-principles.md`。缺失时报告真实缺口，不猜测路径。本仓库仅在用户明确调用 `$codex-stage-orchestrator` 交付开发任务，或按同源 `governance/group-collaboration.md` 接受有效任务委托时启用开发治理。
 
 - 研究共同规则只维护在 `research/research-workflow.md`；项目方法、资料协议与工程交接分别维护，A／B 与交易合同仅在项目明确选用时加载。入口和角色引用正文，不复制完整规则。
 - 目标项目的业务合同、数据用途、实验配置与结果继续归目标项目的研究 Issues 及仓库外证据；这里不保存运行状态、数据集、模型、钱包或认证材料。

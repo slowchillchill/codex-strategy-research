@@ -15,13 +15,15 @@ research_codex_dir="${CODEX_HOME:-$HOME/.codex}"
 
 保留完整源码目录。`SKILL.md` 通过 `../../research/` 引用研究正文，不能只复制入口文件。研究规则源无需另建路径绑定；主会话从实际 Skill 来源定位研究源，并向子角色交接真实目录、规则版本及准确任务。下述知识库绑定用于定位另一类资料，与 Skill 规则源的定位分开。研究规则源、目标业务源码和运行产物各自保留真实身份，不把规则提交当作策略程序版本。
 
+公共规则沿用仓库外治理绑定：非空 `CODEX_GOVERNANCE_CONFIG`，否则 `${XDG_CONFIG_HOME:-$HOME/.config}/codex-governance/local.toml`。仅用 `paths.source_root` 定位 `governance/common-principles.md` 与跨组交接协议 `governance/group-collaboration.md`。研究内部流程从本研究源读取；编写获准的研究辅助代码等工程活动才按需读取同源 `governance/engineering-principles.md`。
+
 ## 研究身份与协作绑定
 
 研究主会话使用独立 `github.research`，不再读取开发治理的控制账号。将 [templates/local.example.toml](../templates/local.example.toml) 的研究表合并到仓库外的 `CODEX_STRATEGY_RESEARCH_CONFIG` 指定文件，默认 `${XDG_CONFIG_HOME:-$HOME/.config}/codex-strategy-research/local.toml`，保留已有知识库字段。真实登录名与认证目录仅在本机填写；缺失就报告，不回退旧账号。
 
-平台命令统一使用治理源 `scripts/group_github.py --group research gh -- <gh 参数>`，每次排除继承令牌、设置研究目录并核验身份。研究来源的开发任务由开发身份执行全部技术操作；研究组仅作为签发组创建已推送分支的 PR 并回传链接。具体职责以治理源 `governance/group-collaboration.md` 为准。
+平台命令统一使用治理源 `scripts/group_github.py --group research gh -- <gh 参数>`，每次排除继承令牌、设置研究目录并核验身份。研究组为自己签发任务的已推送分支创建 PR 并回传链接，具体往返按共同交接协议。
 
-协作仅使用决策源的单一适配器。通过仓库外 `CODEX_AGENT_CENTER_CONFIG` 或默认 `codex-agent-center/local.toml` 的 `paths.source_root` 定位适配器、`docs/cross-route-protocol.md` 和安装说明，按项目声明绑定逻辑参与者与现有来源入口。纯 GitHub 接收方无需 App Server 绑定，在自己的环境恢复现场并显式接单；只有选择 Agent Center 通道时才填写端点、准确线程、工作目录和 Skill 路径。普通依赖可直接签发；接收流程须明确接受有效委托，结构化输入不代表预算扩大。协作邀请、权限、真实线程绑定与真实联调在启用阶段完成，规则维护不自动执行这些操作。
+跨组接单与消息按治理源 `governance/group-collaboration.md`，需要传输时按该协议定位适配器及操作说明。纯 GitHub 交接无需 App Server 绑定；选择 Agent Center 通道时，在仓库外绑定参与者、端点、准确线程、工作目录和 Skill 路径。协作邀请、权限与真实联调在启用阶段完成，规则维护不执行这些操作。
 
 ## 知识库本机绑定
 
@@ -79,7 +81,7 @@ description = "显式启用研究或接受有效决策委托后，独立只读�
 config_file = "codex-strategy-research/agents/research-reviewer.toml"
 ```
 
-注册只使角色可用，不启动研究，也不启用开发治理。三个角色不代替开发的 `scope-planner`、`implementer`、`reviewer`；它们可以并存。主会话负责研究任务、授权和必要的 GitHub 状态维护；研究角色没有旧开发角色的无条件账号核验、Issue 到 PR 交付职责。
+注册只使角色可用，不启动研究。主会话负责研究问题、授权和 GitHub 状态维护，子角色只接收本轮任务并返回研究内容，具体职责由 `research/research-workflow.md` 维护。
 
 角色示例不设置 `model`、`model_reasoning_effort`、`sandbox_mode` 或 `approval_policy`，默认继承父会话配置。安装后可以在各角色本机 TOML 的顶层单独设置原生 `model` 和 `model_reasoning_effort`，使用当前环境实际支持的值。保留主会话和角色原有权限；父会话实时限制仍然适用。设计者、审查者的只读是职责约束，不等同于操作系统级或凭据级隔离。
 
@@ -105,7 +107,7 @@ codex debug prompt-input '仅核对 codex-strategy-research 的规则来源与�
 
 如果所用客户端只能发送纯文本，可明确要求读取安装后 `SKILL.md` 的真实路径，并在同一请求中显式启用本 skill；确认正文已读取后再进行研究交接。不能仅看到名称就认定已加载。
 
-同时检查该入口实际加载的基础配置、三个角色注册及 `config_file` 目标，确认研究源引用可读取。Skill 列表或输入中出现名称不能单独证明原生角色已加载；文件可解析也不能证明角色实际行为正确。需要核对派生时，让主会话向三个已注册角色分别交接一个只读职责核对任务：返回规则来源、职责和缺失条件，不运行实验、不写 GitHub。这项核对不要求启用开发治理或真实运行研究任务。使用普通持久会话验证派生；`--ephemeral` 不保存会话记录，本次在该模式下派生因 `no rollout found for thread id` 失败，不能据此宣称角色内容有误或普通启动不可用。
+同时检查该入口实际加载的基础配置、三个角色注册及 `config_file` 目标，确认共同原则与研究源引用可读取。Skill 列表或输入中出现名称不能单独证明原生角色已加载；文件可解析也不能证明角色实际行为正确。需要核对派生时，让主会话向三个已注册角色分别交接一个只读职责核对任务：返回规则来源、职责和缺失条件，不运行实验、不写 GitHub。这项核对不要求真实运行研究任务。使用普通持久会话验证派生；`--ephemeral` 不保存会话记录，本次在该模式下派生因 `no rollout found for thread id` 失败，不能据此宣称角色内容有误或普通启动不可用。
 
 完整配置输出可能包含本机路径，不提交到源仓库或业务报告。磁盘更新不保证旧会话或既有子代理热加载；使用新会话确认生效。
 
@@ -124,6 +126,4 @@ codex debug prompt-input '仅核对 codex-strategy-research 的规则来源与�
 
 研究规则升级依据文档差异、引用和职责审查，不以启动真实回测、训练、部署或资金操作作为安装测试。
 
-本次升级把 A／B 与交易合同改为明确选用的参考，保留已生效领域合同及既有研究证据。更新角色副本与注册描述时保留模型、推理和权限；原 `github.controller` 不作为研究身份回退。研究流程接受决策组有效委托，工程依赖直接签发开发并固定返回研究组。新会话核对真实加载，旧会话不会因磁盘变化自动取得新授权。
-
-多路线升级按治理源 `governance/group-collaboration.md` 补齐逻辑参与者、原协作请求、实际工程签发及固定回传的交接；同一研究账号不代替路线身份。公共交付与本路线采用分别记录。发布消息不自动唤醒离线组，不安装后台服务。
+升级时核对治理源已提供 `governance/common-principles.md`，并同步已安装角色中的公共规则引用。工程交付和本轮研究采用分别记录，已有研究证据、数据用途及授权继续按原合同判断。
