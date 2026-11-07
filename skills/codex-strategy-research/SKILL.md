@@ -9,7 +9,11 @@ description: 显式用于研究与探索，或接受已获授权的决策组研�
 
 业务源码和 Git 保持只读，研究产物写入分配的仓库外目录。研究主会话维护所属研究 Issue／Projects，向实际签发组返回结论、证据、成本、限制与困难。具体权限、研究角色和完成条件由研究流程规定。
 
-解析本 `SKILL.md` 的真实文件路径，以所在目录解析下列相对链接，完整读取[共同研究流程](../../research/research-workflow.md)，并读取目标仓库适用 `AGENTS.md` 与当前合同。公共授权、证据与异常处理按个人规则定位的 `governance/common-principles.md`；接收委托或跨组签发时读取同源 `governance/group-collaboration.md`。缺失时报告真实缺口。
+解析本 `SKILL.md` 的真实文件路径，以所在目录解析下列相对链接，完整读取[共同研究流程](../../research/research-workflow.md)，并读取目标仓库适用 `AGENTS.md` 与当前合同。
+
+本 Skill 明确采用公共授权、证据、异常处理、资源与记录原则。通过非空 `CODEX_GOVERNANCE_CONFIG`，否则 `${XDG_CONFIG_HOME:-$HOME/.config}/codex-governance/local.toml`，只读定位绑定文件；仅以 `paths.source_root` 定位并读取 `governance/common-principles.md`。接收委托或跨组签发时读取同源 `governance/group-collaboration.md`；编写或修复获准的研究辅助代码时读取同源 `governance/engineering-principles.md`。平台访问按研究流程使用同源 `scripts/group_github.py --group research`，需要认证时才核验研究身份。
+
+这些依赖只适用于本 Skill 的当前研究任务，不因被读取而约束其他 Skill 或无关任务，也不启动开发编排。缺失时报告具体缺口，不从个人全局规则或另一副本猜测来源。向子角色交接准确研究源及公共依赖源；同一任务继续沿用有效授权、累计预算和失败事实。
 
 按当前问题和项目明确选用的内容读取：
 

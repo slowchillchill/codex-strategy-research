@@ -49,7 +49,7 @@ $codex-strategy-research
 - [工程交接](research/engineering-handoff.md)：缺陷证据、影响范围、修复与研究恢复。
 - [案例验证](evaluations/scenarios.md)：用实际行为检查规则，不只检查文件格式。
 
-共同授权、证据、异常处理与资源规则来自治理源 `governance/common-principles.md`，跨组输入输出按 `governance/group-collaboration.md` 交接。本仓库维护研究内部流程与方法，目标项目维护业务合同与研究结果；工程设计与代码交付由工程规则维护。方法参考量化研究和机器学习一手资料，具体采用理由与适用局限见对应正文。
+研究 [Skill 入口](skills/codex-strategy-research/SKILL.md)自行声明并定位其公共依赖：采用 `governance/common-principles.md` 的授权、证据、异常处理与资源规则，跨组输入输出按需读取 `governance/group-collaboration.md`，获准的研究辅助代码按需采用 `governance/engineering-principles.md`。这些依赖只约束当前研究任务，不依赖个人全局规则预先加载，也不启动开发编排。本仓库维护研究内部流程与方法，目标项目维护业务合同与研究结果；工程设计与代码交付由相应工程流程维护。方法参考量化研究和机器学习一手资料，具体采用理由与适用局限见对应正文。
 
 项目明确选用该知识库时，研究可按问题自主查阅互联网和 [research-knowledge](https://github.com/slowchillchill/research-knowledge)。本地知识库默认只读查询仓库外绑定的唯一 `main` 工作树，并固定核对提交与输入版本；维护者在论文提交推送后同步默认版本，显式历史查询从归档恢复。安装说明给出位置与版本的配置方法。人工收录、论文报告和本项目复现是不同证据层次，研究不自动回写知识库。
 
